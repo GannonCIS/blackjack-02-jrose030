@@ -11,4 +11,31 @@ package blackjack_02;
  */
 public class Deck {
     
+    private Card[] myCards = new Card[52];
+    private int nextCard = 0;
+    private String[] ranks = {};
+    private String[] suits = {};
+    
+    public Deck(){
+        initDeck();
+        shuffle();
+    
+    }
+
+    private void initDeck() {
+        
+    }
+
+    private void shuffle() {
+        
+    }
+    
+    public Card dealCard(){
+        
+        return null; // Don't forget to change this !!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
+    
+    
+    
+    
 }
