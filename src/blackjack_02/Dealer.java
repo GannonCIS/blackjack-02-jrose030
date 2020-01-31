@@ -11,4 +11,26 @@ package blackjack_02;
  */
 public class Dealer {
     
+    private Hand myHand = new Hand();
+    private Player[] myPlayers = new Player[]{}; 
+    /*not sure if thats how you should do it because it wont 
+    *let declare an array without a size*/
+    
+    private Deck myDeck = new Deck();
+    
+    public void dealOpeningHand(){
+        
+    }
+    
+    public void playOutPlayerHands(){
+        
+    }
+    
+    public void playOutDealerHand(){
+        
+    }
+    
+    public void declareWinner(){
+        
+    }
 }
