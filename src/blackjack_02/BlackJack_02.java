@@ -18,8 +18,6 @@ public class BlackJack_02 {
         
         Deck myDeck = new Deck();
         myDeck.printDeck();
-
-
     }
     
 }
