@@ -26,7 +26,7 @@ public class Hand {
                  score += Integer.parseInt(newCard.RANK);
             }catch(java.lang.NumberFormatException ex){
                 if(newCard.RANK.equals("Ace")){
-                    score += 1;
+                      score += 1;  
                 } else
                     score += 10;
             }
