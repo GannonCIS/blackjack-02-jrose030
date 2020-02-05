@@ -13,7 +13,7 @@ public class Deck {
     
     private Card[] myCards = new Card[52];
     private int nextCard = 0;
-    private String[] ranks = {};
+    private String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
     private String[] suits = {};
     
     public Deck(){
@@ -35,7 +35,11 @@ public class Deck {
         return null; // Don't forget to change this !!!!!!!!!!!!!!!!!!!!!!!!!!
     }
     
-    
+    public void printDeck(){
+        for(int i =0; i < myCards.length; i++){
+            System.out.println(myCards[i].RANK + " of " + myCards[i].SUIT);
+        }
+    }
     
     
 }
