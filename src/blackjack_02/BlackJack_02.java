@@ -17,8 +17,9 @@ public class BlackJack_02 {
     public static void main(String[] args) {
         
         Dealer george = new Dealer();
-        
+        george.dealOutOpeningHand();
+        george.playOutPlayerHands();
         }
     }
     
-}
+
