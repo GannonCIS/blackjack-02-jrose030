@@ -26,7 +26,11 @@ public class Hand {
                  score += Integer.parseInt(newCard.RANK);
             }catch(java.lang.NumberFormatException ex){
                 if(newCard.RANK.equals("Ace")){
-                      score += 1;  
+                      if(score <= 10){
+                        score += 11;
+                    } else {
+                        score += 1;
+                      } 
                 } else
                     score += 10;
             }
@@ -45,6 +49,20 @@ public class Hand {
     public int getNumOfCards(){
         return numOfCards;
     
+    }
+    
+    public boolean checkForAce(){
+        boolean bool = false;
+        if(score > 21){
+           for(int i =0; i < numOfCards; i++){
+                if(myCards[i].RANK.equals("Ace")){
+                    score -= 10;
+                    bool = true;
+                }
+            } 
+        }
+        
+        return bool;
     }
     
     public void printHand(){

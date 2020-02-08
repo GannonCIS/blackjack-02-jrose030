@@ -40,11 +40,13 @@ public class Dealer {
     
     public void playOutPlayerHands(){
         for(Player currPlayer : myPlayers){
-            System.out.println("\n" + currPlayer.getName() + "'s Hand");
+            System.out.println("\n" + currPlayer.getName() + "'s Hand" + "\n" + 
+                    "-------------");
             currPlayer.getMyHand().printHand();
             while(currPlayer.getMyHand().getNumOfCards() < 5 && 
                     currPlayer.getMyHand().getScore() < 21){
-                System.out.println(currPlayer.getName() + " Want a hit? (y/n)");
+                System.out.println("Score: " + currPlayer.getMyHand().getScore()
+                        + "\n" + currPlayer.getName() + " Want a hit? (y/n)");
                 char opt = scan.next().toLowerCase().charAt(0);
                 System.out.println("\n");
                 if(opt == 'y'){
@@ -53,7 +55,10 @@ public class Dealer {
                 } else{
                     break;
                 }
+                System.out.println("\n" + currPlayer.getName() + "'s Hand" + "\n" + 
+                    "-------------");
                 currPlayer.getMyHand().printHand();
+                currPlayer.getMyHand().checkForAce();
             }
         }
     }
@@ -62,7 +67,8 @@ public class Dealer {
         while(dealerHand.getScore() < 16 && dealerHand.getNumOfCards() < 5){
             dealerHand.addCard(myDeck.dealCard());
         }
-        System.out.println( "\n" + "Dealer's Hand");
+        System.out.println( "\n" + "Dealer's Hand" + "\n" + 
+                "--------------");
         dealerHand.printHand();
     }
     
@@ -81,7 +87,11 @@ public class Dealer {
                     dealerHand.getScore() != 21 && 
                     currPlayer.getMyHand().getScore() < 21){
                 winners[i] = currPlayer;
-            } 
+                i++;
+            } else if(dealerHand.getScore() > 21) {
+                winners[i] = currPlayer;
+                i++;
+            }
         }
         if(i != 0){
             try{
