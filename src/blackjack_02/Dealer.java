@@ -62,12 +62,36 @@ public class Dealer {
         while(dealerHand.getScore() < 16 && dealerHand.getNumOfCards() < 5){
             dealerHand.addCard(myDeck.dealCard());
         }
-        System.out.println("Dealer's Hand");
+        System.out.println( "\n" + "Dealer's Hand");
         dealerHand.printHand();
     }
     
     public void declareWinners(){
-        
+        Player[] winners = new Player[myPlayers.length];
+        int i = 0;
+        for(Player currPlayer : myPlayers){
+            if(currPlayer.getMyHand().getScore() == 21){
+                winners[i] = currPlayer;
+                i++;
+            }else if(currPlayer.getMyHand().getScore() > dealerHand.getScore() 
+                    && currPlayer.getMyHand().getScore() < 21){
+                winners[i] = currPlayer;
+                i++;
+            } else if(currPlayer.getMyHand().getNumOfCards() == 5 && 
+                    dealerHand.getScore() != 21 && 
+                    currPlayer.getMyHand().getScore() < 21){
+                winners[i] = currPlayer;
+            } 
+        }
+        if(i != 0){
+            try{
+                for(Player currPlayer : winners){
+                    System.out.println( "\n" + currPlayer.getName() + " wins!!");
+                }
+            }catch(java.lang.NullPointerException ex){}
+        }else{
+                System.out.println("\n" + "The house always wins!!");
+            }
     }
     
     private void initPlayers(int numOfPlayers){
