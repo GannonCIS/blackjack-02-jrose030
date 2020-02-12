@@ -76,7 +76,7 @@ public class Dealer {
         Player[] winners = new Player[myPlayers.length];
         int i = 0;
         for(Player currPlayer : myPlayers){
-            if(currPlayer.getMyHand().getScore() == 21){
+            if(currPlayer.getMyHand().getScore() == 21 && dealerHand.getScore() != 21){
                 winners[i] = currPlayer;
                 i++;
             }else if(currPlayer.getMyHand().getScore() > dealerHand.getScore() 
@@ -85,10 +85,10 @@ public class Dealer {
                 i++;
             } else if(currPlayer.getMyHand().getNumOfCards() == 5 && 
                     dealerHand.getScore() != 21 && 
-                    currPlayer.getMyHand().getScore() < 21){
+                    currPlayer.getMyHand().getScore() < 21 && dealerHand.getNumOfCards() != 5){
                 winners[i] = currPlayer;
                 i++;
-            } else if(dealerHand.getScore() > 21) {
+            } else if(dealerHand.getScore() > 21 && currPlayer.getMyHand().getScore() < 21) {
                 winners[i] = currPlayer;
                 i++;
             }
